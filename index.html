@@ -2,81 +2,331 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martabak Bang Fajar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#21140f">
+  <meta name="description" content="Martabak Bang Fajar, martabak favorit di Pekanbaru sejak 2013.">
+  <title>Martabak Bang Fajar | Pekanbaru</title>
 
-    <style>
-        body {
-            background-color: #21140f;
-            color: #fff0d5;
-            font-family: Georgia, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            color: #f5c66a;
-        }
+    :root {
+      --bg: #21140f;
+      --card: #302018;
+      --gold: #f5c66a;
+      --cream: #fff2dc;
+      --muted: #d3c0a8;
+    }
 
-        .kartu {
-            background: #39271d;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 15px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        a {
-            display: block;
-            background: #d9a441;
-            color: #21140f;
-            padding: 12px;
-            margin-top: 12px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: Georgia, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid #493225;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: 19px;
+    }
+
+    .hero {
+      padding: 65px 0 45px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, #50301b, transparent 70%);
+    }
+
+    .label {
+      display: inline-block;
+      color: var(--gold);
+      border: 1px solid #79572e;
+      border-radius: 30px;
+      padding: 5px 14px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 8vw, 58px);
+      line-height: 1.12;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 500px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: transform .2s;
+    }
+
+    .button:active {
+      transform: scale(.97);
+    }
+
+    .gold {
+      background: var(--gold);
+      color: #21140f;
+    }
+
+    .outline {
+      border: 1px solid #79572e;
+      color: var(--gold);
+    }
+
+    .hero .button {
+      margin: 4px;
+    }
+
+    section {
+      padding: 30px 0;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 22px;
+      font-size: 14px;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .photos img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid #60442b;
+      background: var(--card);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #493225;
+      border-radius: 17px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card .button {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .info p {
+      margin: 12px 0;
+      color: var(--cream);
+      overflow-wrap: anywhere;
+    }
+
+    .order {
+      text-align: center;
+      background: linear-gradient(135deg, #49301d, #302018);
+      border: 1px solid #60442b;
+      border-radius: 20px;
+      padding: 30px 18px;
+      margin: 20px auto 45px;
+    }
+
+    .order h2 {
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .order p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 12px;
+      border-top: 1px solid #493225;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 520px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .photos {
+        gap: 9px;
+      }
+
+      .photos img {
+        height: 155px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="container brand">MARTABAK BANG FAJAR</div>
+  </header>
 
-    <h1>MARTABAK BANG FAJAR</h1>
-    <p>Bang Fajar Bikin Laper, Bukan Bikin Baper!</p>
-    <p>Since 2013</p>
-
-    <div class="kartu">
-        <h2>Lokasi Resto</h2>
-
-        <a href="https://maps.app.goo.gl/KH7jra8MhBKb4Baa8?g_st=ac">
-            Lokasi Soekarno Hatta
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="label">KEBANGGAAN PEKANBARU</span>
+        <h1>Martabak Enak,<br><span>Bikin Nagih!</span></h1>
+        <p>
+          Bang Fajar Bikin Laper, Bukan Bikin Baper!
+          Sajian favorit sejak 2013.
+        </p>
+        <a class="button gold"
+           href="https://wa.me/6285356937233">
+          Pesan via WhatsApp
         </a>
-
-        <a href="https://maps.app.goo.gl/nC7sY8EdDz1KMjRw6?g_st=ac">
-            Lokasi Jalan Teropong
+        <a class="button outline" href="#lokasi">
+          Temukan Resto
         </a>
-    </div>
+      </div>
+    </section>
 
-    <div class="kartu">
-        <h2>Informasi Resto</h2>
-        <p>📍 Pekanbaru, Riau</p>
-        <p>📞 085356937233</p>
-        <p>🕒 17.00–23.00 WIB</p>
+    <section>
+      <div class="container">
+        <h2 class="section-title">Kenikmatan Martabak</h2>
+        <p class="section-desc">
+          Lihat foto Martabak Bang Fajar.
+        </p>
+        <div class="photos">
+          <img src="Martabak Bang Fajar.jpg"
+               alt="Foto Martabak Bang Fajar"
+               loading="lazy">
+          <img src="Martabak Bang Fajar 2.jpg"
+               alt="Foto martabak lainnya"
+               loading="lazy">
+        </div>
+      </div>
+    </section>
 
-        <a href="https://wa.me/6285356937233">
-            Hubungi via WhatsApp
-        </a>
-    </div>
+    <section id="lokasi">
+      <div class="container">
+        <h2 class="section-title">Lokasi Resto</h2>
+        <p class="section-desc">
+          Pilih lokasi yang paling dekat denganmu.
+        </p>
 
+        <div class="cards">
+          <div class="card">
+            <h3>📍 Soekarno Hatta</h3>
+            <p>Temukan lokasi Resto kami melalui Google Maps.</p>
+            <a class="button gold"
+               href="https://maps.app.goo.gl/KH7jra8MhBKb4Baa8?g_st=ac"
+               target="_blank" rel="noopener">
+              Buka Google Maps ↗
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>📍 Jalan Teropong</h3>
+            <p>Kunjungi lokasi Resto kami yang satu lagi.</p>
+            <a class="button gold"
+               href="https://maps.app.goo.gl/nC7sY8EdDz1KMjRw6?g_st=ac"
+               target="_blank" rel="noopener">
+              Buka Google Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card info">
+          <h2 class="section-title">Informasi Resto</h2>
+          <p>📍 Pekanbaru, Riau</p>
+          <p>📞 085356937233</p>
+          <p>🕒 Setiap hari, 17.00–23.00 WIB</p>
+          <p>⭐ Melayani pelanggan sejak 2013</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="order">
+          <h2>Lagi Ngidam Martabak?</h2>
+          <p>Hubungi Martabak Bang Fajar lewat WhatsApp.</p>
+          <a class="button gold"
+             href="https://wa.me/6285356937233">
+            Chat Sekarang →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2013–2026 Martabak Bang Fajar<br>
+    Dibuat dengan ❤️ di Pekanbaru
+  </footer>
 </body>
-  <img src="Martabak Bang Fajar.jpg"
-     alt="Foto Martabak Bang Fajar"
-     style="width:100%; max-width:600px; height:240px; object-fit:cover; border:3px solid #d9a441; border-radius:15px; margin:20px auto; display:block;">
-
-</body>
-  <img src="Martabak Bang Fajar 2.jpg"
-     alt="Foto Martabak Bang Fajar"
-     style="width:100%; max-width:600px; height:240px; object-fit:cover; border:3px solid #d9a441; border-radius:15px; margin:20px auto; display:block;">
-
 </html>
-
