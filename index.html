@@ -291,6 +291,87 @@
         padding-top: 48px;
       }
     }
+    
+/* ANIMASI MARTABAK BANG FAJAR */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero h1 {
+  animation: fadeDown 0.8s ease-out both;
+}
+
+.hero p {
+  animation: fadeUp 1s ease-out both;
+}
+
+.card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #f5c66a22;
+  border-color: #f5c66a;
+}
+
+a[href*="wa.me"] {
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+a[href*="wa.me"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px #f5c66a44;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efek muncul ketika halaman digulir */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease,
+              transform 0.7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
   </style>
 </head>
 
@@ -424,7 +505,7 @@
         <div class="cards">
           <div class="card">
             <h3>📍 Soekarno Hatta</h3>
-            <p>Temukan lokasi Resto kami melalui Google Maps.</p>  
+            <p>Temukan lokasi Resto kami melalui Google Maps.</p>
             <a class="button gold"
                href="https://maps.app.goo.gl/KH7jra8MhBKb4Baa8?g_st=ac"
                target="_blank" rel="noopener">
@@ -475,5 +556,33 @@
     © 2013–2026 Martabak Bang Fajar<br>
     Dibuat dengan ❤️ di Pekanbaru
   </footer>
+  
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+
+  if (!("IntersectionObserver" in window)) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  sections.forEach((section) => {
+    section.classList.add("reveal");
+    observer.observe(section);
+  });
+});
+</script>
+
 </body>
 </html>
