@@ -206,6 +206,74 @@
       font-size: 12px;
     }
 
+/* MENU MARTABAK */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.menu-item {
+  background: linear-gradient(145deg, #38251b, #2a1b14);
+  border: 1px solid #60442b;
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  transition: transform .2s, border-color .2s;
+}
+
+.menu-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.menu-item h3 {
+  color: var(--cream);
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.menu-price {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.menu-heading {
+  color: var(--gold);
+  font-size: 19px;
+  margin: 25px 0 12px;
+}
+
+.menu-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+@media (max-width: 520px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .menu-item {
+    padding: 13px;
+  }
+
+  .menu-item h3 {
+    font-size: 14px;
+  }
+
+  .menu-price {
+    font-size: 15px;
+  }
+}
+
     @media (max-width: 520px) {
       .cards {
         grid-template-columns: 1fr;
@@ -267,6 +335,85 @@
       </div>
     </section>
 
+<section id="menu">
+  <div class="container">
+    <h2 class="section-title">Menu Martabak</h2>
+    <p class="section-desc">
+      Pilih varian favoritmu. Harga tercantum untuk setiap menu.
+    </p>
+
+    <h3 class="menu-heading">Martabak Klasik</h3>
+    <div class="menu-grid">
+      <div class="menu-item"><h3>Martabak Kosong</h3><span class="menu-price">Rp11.000</span></div>
+      <div class="menu-item"><h3>Martabak Kelapa</h3><span class="menu-price">Rp13.000</span></div>
+      <div class="menu-item"><h3>Martabak Pisang</h3><span class="menu-price">Rp16.000</span></div>
+      <div class="menu-item"><h3>Martabak Nenas</h3><span class="menu-price">Rp16.000</span></div>
+      <div class="menu-item"><h3>Martabak Wijen</h3><span class="menu-price">Rp16.000</span></div>
+      <div class="menu-item"><h3>Martabak Kacang</h3><span class="menu-price">Rp17.000</span></div>
+      <div class="menu-item"><h3>Martabak Ketan Hitam</h3><span class="menu-price">Rp17.000</span></div>
+      <div class="menu-item"><h3>Martabak Cokelat</h3><span class="menu-price">Rp17.000</span></div>
+      <div class="menu-item"><h3>Martabak Strawberry</h3><span class="menu-price">Rp17.000</span></div>
+      <div class="menu-item"><h3>Martabak Jagung</h3><span class="menu-price">Rp19.000</span></div>
+      <div class="menu-item"><h3>Martabak Kismis</h3><span class="menu-price">Rp19.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju</h3><span class="menu-price">Rp20.000</span></div>
+      <div class="menu-item"><h3>Martabak Oreo</h3><span class="menu-price">Rp20.000</span></div>
+      <div class="menu-item"><h3>Martabak Tiramisu</h3><span class="menu-price">Rp20.000</span></div>
+    </div>
+
+    <h3 class="menu-heading">Martabak Kombinasi</h3>
+    <div class="menu-grid">
+      <div class="menu-item"><h3>Martabak Kacang Cokelat</h3><span class="menu-price">Rp21.000</span></div>
+      <div class="menu-item"><h3>Martabak Pisang Cokelat</h3><span class="menu-price">Rp21.000</span></div>
+      <div class="menu-item"><h3>Martabak Wijen Kacang</h3><span class="menu-price">Rp21.000</span></div>
+      <div class="menu-item"><h3>Martabak Wijen Cokelat</h3><span class="menu-price">Rp21.000</span></div>
+      <div class="menu-item"><h3>Martabak Kacang Ketan</h3><span class="menu-price">Rp21.000</span></div>
+      <div class="menu-item"><h3>Martabak Kismis Wijen</h3><span class="menu-price">Rp23.000</span></div>
+      <div class="menu-item"><h3>Martabak Kismis Kacang</h3><span class="menu-price">Rp23.000</span></div>
+      <div class="menu-item"><h3>Martabak Kismis Cokelat</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Jagung Cokelat</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Ketan</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Kacang</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Cokelat</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Wijen</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Pisang</h3><span class="menu-price">Rp24.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Kismis</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Jagung</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Nenas</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Strawberry</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Spesial</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Spesial Campur</h3><span class="menu-price">Rp26.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Kacang Cokelat</h3><span class="menu-price">Rp29.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Jagung Cokelat</h3><span class="menu-price">Rp30.000</span></div>
+      <div class="menu-item"><h3>Martabak Keju Oreo</h3><span class="menu-price">Rp29.000</span></div>
+      <div class="menu-item"><h3>Martabak Cokelat Oreo</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Kacang Oreo</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Tiramisu Cokelat</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Tiramisu Kacang</h3><span class="menu-price">Rp25.000</span></div>
+      <div class="menu-item"><h3>Martabak Tiramisu Oreo</h3><span class="menu-price">Rp29.000</span></div>
+      <div class="menu-item"><h3>Martabak Choco Crunchy</h3><span class="menu-price">Rp22.000</span></div>
+    </div>
+
+    <h3 class="menu-heading">Martabak Durian</h3>
+    <div class="menu-grid">
+      <div class="menu-item"><h3>Martabak Durian</h3><span class="menu-price">Rp27.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Ketan</h3><span class="menu-price">Rp31.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Kacang</h3><span class="menu-price">Rp31.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Cokelat</h3><span class="menu-price">Rp31.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Kismis</h3><span class="menu-price">Rp33.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Jagung</h3><span class="menu-price">Rp33.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Spesial</h3><span class="menu-price">Rp33.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Keju</h3><span class="menu-price">Rp33.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Keju Kacang</h3><span class="menu-price">Rp35.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Keju Cokelat</h3><span class="menu-price">Rp38.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Keju Ketan</h3><span class="menu-price">Rp38.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Keju Kismis</h3><span class="menu-price">Rp39.000</span></div>
+      <div class="menu-item"><h3>Martabak Durian Keju Jagung</h3><span class="menu-price">Rp39.000</span></div>
+    </div>
+
+    </p>
+  </div>
+</section>
+
     <section id="lokasi">
       <div class="container">
         <h2 class="section-title">Lokasi Resto</h2>
@@ -277,7 +424,7 @@
         <div class="cards">
           <div class="card">
             <h3>📍 Soekarno Hatta</h3>
-            <p>Temukan lokasi Resto kami melalui Google Maps.</p>
+            <p>Temukan lokasi Resto kami melalui Google Maps.</p>  
             <a class="button gold"
                href="https://maps.app.goo.gl/KH7jra8MhBKb4Baa8?g_st=ac"
                target="_blank" rel="noopener">
