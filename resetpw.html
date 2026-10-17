@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password Admin</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f0e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 380px;
+      box-sizing: border-box;
+    }
+    h2 { color: #713b1d; }
+    input, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input { border: 1px solid #ccc; }
+    button {
+      border: 0;
+      background: #713b1d;
+      color: white;
+      font-weight: bold;
+    }
+    #pesan { margin-top: 16px; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Buat Password Baru</h2>
+    <p>Masukkan password baru untuk akun admin Martabak Bang Fajar.</p>
+
+    <form id="resetForm">
+      <input id="password" type="password"
+        placeholder="Password baru (minimal 8 karakter)"
+        minlength="8" required>
+      <input id="konfirmasi" type="password"
+        placeholder="Ulangi password baru"
+        minlength="8" required>
+      <button type="submit">Simpan Password Baru</button>
+    </form>
+
+    <p id="pesan"></p>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://hirumtfipaqzfcjfmyyr.supabase.co/rest/v1/";
+    const SUPABASE_KEY = "sb_publishable_XYgAc8zpWsC_GQGS1YB4pg_TRo-agcr";
+
+    const db = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+    const pesan = document.getElementById("pesan");
+
+    async function periksaSesi() {
+      const hasil = await db.auth.getSession();
+
+      if (hasil.error || !hasil.data.session) {
+        pesan.textContent =
+          "Sesi reset belum terdeteksi. Buka halaman ini dari link reset email terbaru.";
+      } else {
+        pesan.textContent = "Link reset terdeteksi. Silakan buat password baru.";
+      }
+    }
+
+    document.getElementById("resetForm").addEventListener(
+      "submit", async function(event) {
+        event.preventDefault();
+
+        const password = document.getElementById("password").value;
+        const konfirmasi = document.getElementById("konfirmasi").value;
+
+        if (password.length < 8) {
+          pesan.textContent = "Password minimal 8 karakter.";
+          return;
+        }
+
+        if (password !== konfirmasi) {
+          pesan.textContent = "Kedua password tidak sama.";
+          return;
+        }
+
+        pesan.textContent = "Menyimpan password...";
+
+        const hasil = await db.auth.updateUser({
+          password: password
+        });
+
+        if (hasil.error) {
+          pesan.textContent = "Gagal: " + hasil.error.message;
+          return;
+        }
+
+        pesan.textContent =
+          "Password berhasil diganti! Sekarang buka halaman admin dan login dengan password baru.";
+      }
+    );
+
+    periksaSesi();
+  </script>
+</body>
+</html>
